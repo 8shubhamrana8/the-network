@@ -19,7 +19,7 @@ Lists all posts written by the target user.
 
 Interactive Follow / Unfollow toggle button for logged-in users viewing another profile.
 
-<img width="1897" height="980" alt="ezgif com-video-to-gif-converter (1)" src="https://github.com/user-attachments/assets/81ab4eef-88f3-4773-939a-79cd06ee6382" />
+<img width="100%" alt="ezgif com-video-to-gif-converter (1)" src="https://github.com/user-attachments/assets/81ab4eef-88f3-4773-939a-79cd06ee6382" />
 
 Following Feed: A dedicated, filtered feed displaying only posts from users that the logged-in user follows.
 
