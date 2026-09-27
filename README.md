@@ -5,7 +5,7 @@ A Twitter-like social network web application built with Django on the backend a
 🌟 Key Features
 New Post Creation: Authenticated users can write and publish new text-based posts instantly.
 
-<img width="1280" height="656" alt="ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/59d2fb65-7be3-418c-bf13-668029dc151f" />
+<img width="1897" height="978" alt="ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/59d2fb65-7be3-418c-bf13-668029dc151f" />
 
 All Posts Feed: A primary social feed listing all posts from all users in reverse chronological order.
 
@@ -19,7 +19,7 @@ Lists all posts written by the target user.
 
 Interactive Follow / Unfollow toggle button for logged-in users viewing another profile.
 
-<img width="1280" height="661" alt="ezgif com-video-to-gif-converter (1)" src="https://github.com/user-attachments/assets/81ab4eef-88f3-4773-939a-79cd06ee6382" />
+<img width="1897" height="980" alt="ezgif com-video-to-gif-converter (1)" src="https://github.com/user-attachments/assets/81ab4eef-88f3-4773-939a-79cd06ee6382" />
 
 Following Feed: A dedicated, filtered feed displaying only posts from users that the logged-in user follows.
 
