@@ -1,0 +1,48 @@
+{% extends "network/layout.html" %}
+{% load static %}
+{% block body %}
+  <hr style="margin-block: 10px;">
+  <div>
+    <h3>{{ profile.username }}</h3>
+    <h5>{{ profile.email }}</h5>
+    <h5>followers: <span id="follower-count">{{ profile.follower.count }}</span></h5>
+    <h5>following: {{ profile.following.count }}</h5>
+    {% if profile.id != viewer_id and user.is_authenticated%}
+      <button
+        id="follow-btn"
+        data-profile-id="{{ profile.id }}"
+        class="follow">
+        {% if is_following %}Unfollow{% else %}Follow{% endif %}
+      </button>
+    {% endif %}
+  </div>
+  <hr style="margin-block: 10px;">
+  <h6>{{profile.username}}'s posts: </h6>  
+    {% for post in posts %}
+    <div class="post-container">
+      <h6 class="content">{{ post.content }}</h6>
+      <p class="time">at : {{ post.formatted_time }}</p>
+      <button class="svg-heart-btn like-btn" data-post-id="{{ post.id }}">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </button><span id="likes-count-{{ post.id }}">{{ post.likes.count }}</span>
+      {% if post.author == request.user %}
+        <a href="{% url 'editPost' post_id=post.id %}" class="btn btn-light">Edit</a>
+      {% endif %}
+    </div>
+    {% endfor %}
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      {% if posts.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}"><<</a></li> 
+      {% endif %}
+      {% if posts.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ posts.next_page_number }}">>></a></li>
+      {% endif %}
+    </ul>
+  </nav>
+    {% comment %} Js for follow unfollow {% endcomment %}
+  <script src="{% static 'js/profile.js' %}"></script>
+  <script src="{% static 'js/like.js' %}"></script>
+{% endblock %}

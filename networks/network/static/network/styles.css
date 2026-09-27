@@ -1,0 +1,84 @@
+body {
+    margin-inline: 20vw;
+    background: linear-gradient(180deg, #918c7f 0.000%, #676d92 50.000%, #063e80 100.000%);
+    background-attachment: fixed;
+    color: azure;
+    font-family: 'Brass Mono', monospace;
+    
+}
+
+.body > .post-container {
+  border: 1px solid rgb(0, 0, 0, 0.3);
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  padding: 31px;
+  background-color: rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.body > .post-container:hover {
+  border: 1px solid rgb(255, 255, 255);
+}
+
+strong {
+  color: springgreen;
+}
+
+.post-container > .time {
+  text-align: end;
+}
+
+.follow {
+  outline: none;
+  background-color: rgb(255, 255, 255, 0.1);
+  border: 1px solid rgb(255, 255, 255);
+  color: white;
+}
+
+.follow:hover {
+  background: linear-gradient(135deg, #d0415e 0.000%, #d0415e 20.000%, #d65767 calc(20.000% + 1px), #d65767 40.000%, #db7971 calc(40.000% + 1px), #db7971 60.000%, #e0a57c calc(60.000% + 1px), #e0a57c 80.000%, #e6d886 calc(80.000% + 1px) 100.000%);
+  color: black;
+}
+
+textarea {
+  background-color: inherit;
+  color: white;
+  outline: none;
+  border: 1px solid springgreen;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-inline: 20px;
+  padding-block: 5px;
+  margin-block: 10px;
+}
+
+.svg-heart-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.svg-heart-btn svg {
+  fill: none;
+  stroke: #ff4d6d;
+  stroke-width: 2;
+  transition: fill 0.3s, transform 0.2s;
+}
+
+/* Fills the heart and pops it out slightly on hover */
+.svg-heart-btn:hover svg {
+  fill: #ff4d6d;
+  transform: scale(1.1);
+}
+
+.like-btn:active, 
+.like-btn:focus:active,
+.like-btn:focus-within {
+  outline: none !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}

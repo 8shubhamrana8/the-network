@@ -1,0 +1,17 @@
+{% extends "network/layout.html" %}
+{% load static %}
+{% block body %}
+    <hr style="margin-block: 10px;">
+    <h3 style="text-align: center;">All Posts:</h3>
+    {% if user.is_authenticated %}
+    <div class="new-form post-container border-1">
+    <p>Edit Post:</p>
+    <form action="{% url 'editPost' post.id %}" method="POST" style="justify-content: center;">
+      {% csrf_token %}
+      <textarea name="content" id="content" cols="100" rows="4">{{ post.content }}</textarea>
+      <input type="submit" class="btn btn-light w-20 ms-auto" style="width: 5vw; justify-self: end;" value="Save">
+      <a href="{% url 'index' %}" class="btn btn-danger" style="width: 5vw; justify-self: end;">Cancel<a>
+    </form>
+    </div>
+    {% endif %}
+{% endblock %}

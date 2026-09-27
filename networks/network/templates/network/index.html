@@ -1,0 +1,44 @@
+{% extends "network/layout.html" %}
+{% load static %}
+{% block body %}
+<hr style="margin-block: 10px;">
+<h3 style="text-align: center;">All Posts:</h3>
+{% if user.is_authenticated %}
+  <div class="new-form post-container border-1">
+    <p>New Post:</p>
+    <form action="{% url 'newPost' %}" method="POST" style="display: grid;">
+      {% csrf_token %}
+      <label for="content">What's on your mind: </label>
+      <textarea name="content" id="content" rows="4" style="width: 100%;"></textarea>
+      <input type="submit" class="btn btn-light" style="width: 5vw; justify-self: end;" value="Post">
+    </form>
+  </div>
+    {% endif %}
+
+    {% for post in posts %}
+    <div class="post-container" data-post-id="{{ post.id }}">
+      <h5>@<a style="text-decoration:none; color: inherit;" href="{% url 'profile' profile_id=post.author.id %}"><strong>{{ post.author }}</strong></a> says:</h5>
+      <h6 class="content">{{ post.content }}</h6>
+      <p class="time">at : {{ post.formatted_time }}</p>
+      <button class="svg-heart-btn like-btn focus-ring-0 shadow-none" data-post-id="{{ post.id }}">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </button><span id="likes-count-{{ post.id }}">{{ post.likes.count }}</span>
+      {% if post.author == request.user %}
+        <a href="{% url 'editPost' post_id=post.id %}" class="btn btn-light">Edit</a>
+      {% endif %}
+    </div>
+    {% endfor %}
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      {% if posts.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}"><<</a></li> 
+      {% endif %}
+      {% if posts.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ posts.next_page_number }}">>></a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  <script src="{% static 'js/like.js' %}"></script>
+{% endblock %}
