@@ -5,7 +5,7 @@ A Twitter-like social network web application built with Django on the backend a
 🌟 Key Features
 New Post Creation: Authenticated users can write and publish new text-based posts instantly.
 
-<img width="1897" height="978" alt="ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/59d2fb65-7be3-418c-bf13-668029dc151f" />
+<img width="100%" alt="ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/59d2fb65-7be3-418c-bf13-668029dc151f" />
 
 All Posts Feed: A primary social feed listing all posts from all users in reverse chronological order.
 
