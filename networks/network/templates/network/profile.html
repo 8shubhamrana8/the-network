@@ -17,7 +17,11 @@
     {% endif %}
   </div>
   <hr style="margin-block: 10px;">
-  <h6>{{profile.username}}'s posts: </h6>  
+  {% if request.user == profile %}
+    <h6>Your posts: </h6>
+  {% else %}  
+    <h6>{{profile.username}}'s posts: </h6>  
+  {% endif %}
     {% for post in posts %}
     <div class="post-container">
       <h6 class="content">{{ post.content }}</h6>
